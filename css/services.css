@@ -330,23 +330,55 @@
 }
 
 /* ===== Responsive ===== */
+/* ===== Responsive ===== */
 @media (max-width: 1024px) {
     .services__header-row {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .services__grid {
+        column-gap: var(--spacing-lg);
     }
 }
 
 @media (max-width: 768px) {
     .services__grid {
         grid-template-columns: 1fr;
+        row-gap: 60px;
+        /* Sufficient gap for antennas in single column */
+    }
+
+    .service-card {
+        margin-top: 10px;
+        /* Slight adjust for mobile flow */
+    }
+
+    /* Adjust antenna size for mobile if needed */
+    .service-card::after {
+        width: 100px;
+        height: 60px;
+        bottom: 95%;
+        /* Pull in slightly */
     }
 
     .service-card__image {
         height: 180px;
+        border-width: 8px;
+        /* Thinner bezel on mobile */
     }
 
     .service-card__content {
         padding: var(--spacing-lg);
+    }
+
+    .service-card__title {
+        font-size: 1.1rem;
+    }
+
+    .service-card__number {
+        top: -240px;
+        /* Adjust position relative to new image height/bezel */
+        right: 15px;
     }
 }

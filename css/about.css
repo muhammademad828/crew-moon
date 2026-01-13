@@ -108,19 +108,28 @@
 @media (max-width: 768px) {
     .about__wrapper {
         grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
+        gap: var(--spacing-3xl);
     }
 
     .about__content {
         max-width: 100%;
         order: 2;
+        /* Text below image on mobile usually looks better, but keeping standard order 2 for text? 
+                   Original was order 2 for content, order 1 for visual. 
+                   So Image first, then text. Correct. */
     }
 
     .about__visual {
         order: 1;
+        margin-bottom: var(--spacing-xl);
     }
 
     .about__title {
         font-size: var(--font-size-3xl);
+    }
+
+    /* Adjust TV bezel for mobile */
+    .about__image-wrapper {
+        border-width: 8px;
     }
 }
