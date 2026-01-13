@@ -1,0 +1,131 @@
+/* ==============================================
+   CREW MOON - Contact Section
+   paulkram.com Inspired
+   ============================================== */
+
+.contact {
+    background: var(--color-bg);
+}
+
+.contact__header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+}
+
+.contact__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
+}
+
+/* Contact Info */
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+}
+
+.contact__item {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-xl);
+}
+
+.contact__item:last-child {
+    border-bottom: none;
+}
+
+.contact__item-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact__item-value {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+a.contact__item-value:hover {
+    opacity: 0.7;
+}
+
+/* Contact Form */
+.contact__form {
+    background: var(--color-bg-alt);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+}
+
+.contact__form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group:last-of-type {
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-group__label {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group__input,
+.form-group__textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.form-group__input:focus,
+.form-group__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-group__textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .contact__wrapper {
+        gap: var(--spacing-3xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact__wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__form {
+        padding: var(--spacing-xl);
+    }
+}

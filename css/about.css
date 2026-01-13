@@ -1,0 +1,126 @@
+/* ==============================================
+   CREW MOON - About Section
+   paulkram.com Inspired
+   ============================================== */
+
+.about {
+    background: var(--color-bg);
+}
+
+.about__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4xl);
+    align-items: center;
+}
+
+/* Content */
+.about__content {
+    max-width: 500px;
+}
+
+.about__title {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-black);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.about__text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Visual */
+.about__visual {
+    position: relative;
+}
+
+/* Old TV Effect */
+.about__image-wrapper {
+    position: relative;
+    overflow: hidden;
+    /* TV Bezel & Shape */
+    border-radius: 50% 50% 50% 50% / 10% 10% 10% 10%;
+    /* Subtle curvature */
+    border: 12px solid #2a2a2a;
+    /* Dark casing */
+    background: #000;
+    box-shadow:
+        /* Inner bezel shadow for depth */
+        inset 0 0 15px rgba(0, 0, 0, 0.8),
+        /* Outer shadow for placement */
+        0 20px 50px rgba(0, 0, 0, 0.5);
+    /* Fix for border-radius clipping in some browsers */
+    transform: translateZ(0);
+}
+
+/* Scanlines & Screen Glass Effect */
+.about__image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        /* Scanlines */
+        repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.2) 0px,
+            rgba(0, 0, 0, 0.2) 1px,
+            transparent 1px,
+            transparent 4px),
+        /* Vignette (Tube curvature darkening) */
+        radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.02) 0%,
+            transparent 60%,
+            rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.about__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    /* CRT Color Grading */
+    filter: contrast(1.1) brightness(1.1) saturate(1.2) sepia(0.1);
+    transition: transform var(--transition-slow);
+}
+
+.about__image-wrapper:hover .about__image {
+    transform: scale(1.05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .about__wrapper {
+        gap: var(--spacing-3xl);
+    }
+
+    .about__title {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .about__wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+
+    .about__content {
+        max-width: 100%;
+        order: 2;
+    }
+
+    .about__visual {
+        order: 1;
+    }
+
+    .about__title {
+        font-size: var(--font-size-3xl);
+    }
+}

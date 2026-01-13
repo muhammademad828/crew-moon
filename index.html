@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Crew Moon - شركة إنتاج إعلامي متكاملة متخصصة في إنتاج الفيديو، البودكاست، البث المباشر، وتغطية الفعاليات">
+    <meta name="keywords" content="إنتاج فيديو, بودكاست, بث مباشر, تغطية فعاليات, إنتاج إعلامي, Crew Moon">
+    <meta name="author" content="Crew Moon">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Crew Moon - كل مشهد يحكي قصة">
+    <meta property="og:description" content="نحوّل أفكارك إلى محتوى مرئي استثنائي">
+    <meta property="og:type" content="website">
+
+    <title>Crew Moon | كل مشهد يحكي قصة</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- ========== Header ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <!-- Logo -->
+            <a href="#" class="header__logo">
+                <img src="assets/images/logo.png" alt="Crew Moon Logo" class="header__logo-img">
+                <span class="header__logo-text">CREW MOON</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="header__nav" id="navMenu">
+                <a href="#hero" class="header__link active" data-i18n="nav.home">الرئيسية</a>
+                <a href="#about" class="header__link" data-i18n="nav.about">عنّا</a>
+                <a href="#services" class="header__link" data-i18n="nav.services">خدماتنا</a>
+                <a href="#showreel" class="header__link" data-i18n="nav.work">أعمالنا</a>
+                <a href="#rental" class="header__link" data-i18n="nav.rental">التأجير</a>
+                <a href="#contact" class="header__link" data-i18n="nav.contact">تواصل</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="header__actions">
+                <!-- Language Switcher -->
+                <div class="header__lang">
+                    <button class="header__lang-btn" data-lang-switch="en">EN</button>
+                    <span class="header__lang-divider">/</span>
+                    <button class="header__lang-btn active" data-lang-switch="ar">العربية</button>
+                </div>
+
+
+                <!-- Mobile Toggle -->
+                <button class="header__toggle" id="navToggle" aria-label="Toggle menu">
+                    <span class="header__toggle-bar"></span>
+                    <span class="header__toggle-bar"></span>
+                    <span class="header__toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Overlay -->
+        <div class="header__overlay" id="navOverlay"></div>
+    </header>
+
+    <!-- ========== Hero Section ========== -->
+    <section class="hero section--dark" id="hero">
+        <!-- Video Background -->
+        <div class="hero__bg">
+            <video class="hero__video" id="heroVideo" autoplay muted loop playsinline>
+                <!-- Replace with your local video path -->
+                <source src="assets/videos/hero.mp4" type="video/mp4">
+            </video>
+            <div class="hero__overlay"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="hero__content">
+            <div class="container">
+                <!-- Main Title - VERGE Style for EN, Normal for AR -->
+                <h1 class="hero__title" data-aos="fade-up">
+                    <!-- Arabic Version - Full Text -->
+                    <span class="hero__title-ar" lang="ar">كرو مون</span>
+
+                    <!-- English Version - Separated Letters (VERGE Style) -->
+                    <span class="hero__title-en" lang="en">
+                        <span class="hero__title-letter">C</span>
+                        <span class="hero__title-letter">R</span>
+                        <span class="hero__title-letter">E</span>
+                        <span class="hero__title-letter">W</span>
+                        <span class="hero__title-space"></span>
+                        <span class="hero__title-letter">M</span>
+                        <span class="hero__title-letter">O</span>
+                        <span class="hero__title-letter">O</span>
+                        <span class="hero__title-letter">N</span>
+                    </span>
+                </h1>
+
+                <!-- Tagline -->
+                <p class="hero__tagline" data-aos="fade-up" data-aos-delay="100" data-i18n="hero.tagline">
+                    كل مشهد يحكي قصة
+                </p>
+
+                <!-- Subtitle -->
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200" data-i18n="hero.subtitle">
+                    فريقنا مستعد دائماً
+                </p>
+
+                <!-- CTA -->
+                <div class="hero__cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="btn btn--light" data-i18n="hero.cta">تواصل معنا</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mute Button -->
+        <button class="video-mute" id="heroMute" aria-label="Toggle sound">
+            <svg class="video-mute__icon video-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+            <svg class="video-mute__icon video-mute__icon--unmuted" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+            </svg>
+        </button>
+
+        <!-- Scroll Indicator -->
+        <div class="hero__scroll">
+            <span class="hero__scroll-text" data-i18n="hero.scroll">SCROLL</span>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ========== Image Divider ========== -->
+    <section class="divider" id="divider">
+        <div class="divider__image"
+            style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=600&fit=crop');">
+        </div>
+    </section>
+
+    <!-- ========== About Section ========== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about__wrapper">
+                <!-- Content -->
+                <div class="about__content" data-aos="fade-up">
+                    <span class="section__label" data-i18n="about.label">من نحن</span>
+                    <h2 class="about__title" data-i18n="about.title">Crew Moon</h2>
+                    <p class="about__text" data-i18n="about.text">
+                        "كرو مون" تقدم حلولاً متكاملة للإنتاج الإعلامي والإبداعي—تشمل إنتاج الفيديو والبودكاست، والتصوير
+                        الفوتوغرافي.. نجمع بين الرؤية الإبداعية، التفكير الاستراتيجي، والتقنيات الحديثة لإنتاج محتوى
+                        مؤثر يبرز على كل الشاشات
+                    </p>
+                    <a href="#services" class="link-arrow" data-i18n="about.link">
+                        <span>المزيد</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Image -->
+                <div class="about__visual" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=700&h=500&fit=crop"
+                            alt="Video Editing Timeline" class="about__image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Services Section ========== -->
+    <section class="section services" id="services">
+        <div class="container">
+            <!-- Header -->
+            <div class="services__header" data-aos="fade-up">
+                <span class="section__label" data-i18n="services.label">ما نقدمه</span>
+                <div class="services__header-row">
+                    <h2 class="section__title" data-i18n="services.title">خدماتنا</h2>
+                    <a href="#contact" class="link-arrow" data-i18n="services.link">
+                        <span>اكتشف خدماتنا</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="services__grid">
+                <!-- Service 1: Event Coverage -->
+                <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card__image">
+                        <!-- Replace with your local image -->
+                        <img src="assets/images/services/event-coverage.jfif" alt="Event Coverage">
+                    </div>
+                    <div class="service-card__content">
+                        <div class="service-card__number">01</div>
+                        <h3 class="service-card__title" data-i18n="services.s1.title">تغطية الفعاليات والبث المباشر</h3>
+                        <p class="service-card__desc" data-i18n="services.s1.desc">
+                            تغطية احترافية متعددة الكاميرات للمؤتمرات والمعارض والفعاليات الحية مع إمكانيات البث
+                            المباشر.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Service 2: Media Production -->
+                <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card__image">
+                        <!-- Replace with your local image -->
+                        <img src="assets/images/services/media-production.jfif" alt="Media Production">
+                    </div>
+                    <div class="service-card__content">
+                        <div class="service-card__number">02</div>
+                        <h3 class="service-card__title" data-i18n="services.s2.title">الإنتاج الإعلامي</h3>
+                        <p class="service-card__desc" data-i18n="services.s2.desc">
+                            إنتاج فيديو متكامل من الفكرة إلى التسليم النهائي، بما في ذلك الأفلام الوثائقية والإعلانات
+                            وأفلام العلامات التجارية.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Service 3: Digital Content -->
+                <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card__image">
+                        <!-- Replace with your local image -->
+                        <img src="assets/images/services/digital-content.jfif" alt="Digital Content">
+                    </div>
+                    <div class="service-card__content">
+                        <div class="service-card__number">03</div>
+                        <h3 class="service-card__title" data-i18n="services.s3.title">المحتوى الرقمي</h3>
+                        <p class="service-card__desc" data-i18n="services.s3.desc">
+                            محتوى وسائل التواصل الاجتماعي والرسوم المتحركة والحملات الرقمية المصممة لجذب جمهورك وتحويله.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Service 4: Equipment Rental -->
+                <article class="service-card" data-aos="fade-up" data-aos-delay="400" id="rental">
+                    <div class="service-card__image">
+                        <!-- Replace with your local image -->
+                        <img src="assets/images/services/equipment-rental.jfif" alt="Equipment Rental">
+                    </div>
+                    <div class="service-card__content">
+                        <div class="service-card__number">04</div>
+                        <h3 class="service-card__title" data-i18n="services.s4.title">تأجير المعدات</h3>
+                        <p class="service-card__desc" data-i18n="services.s4.desc">
+                            كاميرات احترافية ومعدات إضاءة وصوت وإكسسوارات متاحة للإيجار.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Showreel Section ========== -->
+    <section class="showreel section--dark" id="showreel">
+        <!-- Video Background -->
+        <div class="showreel__bg">
+            <video class="showreel__video" id="showreelVideo" autoplay muted loop playsinline>
+                <!-- Replace with your local video path -->
+                <source src="assets/videos/showreel.mp4" type="video/mp4">
+            </video>
+            <div class="showreel__overlay"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="showreel__content">
+            <div class="container">
+                <p class="showreel__text" data-aos="fade-up" data-i18n="showreel.text">
+                    نحوّل كل لحظة إلى تجارب بصرية لا تُنسى
+                </p>
+
+                <!-- Actions Row -->
+                <div class="showreel__actions" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="btn btn--light showreel__cta" data-i18n="showreel.cta">
+                        عرض البورتفوليو
+                    </a>
+
+                    <!-- Play/Pause Button -->
+                    <button class="showreel__play" id="showreelPlay">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mute Button -->
+        <button class="video-mute video-mute--showreel" id="showreelMute" aria-label="Toggle sound">
+            <svg class="video-mute__icon video-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+            <svg class="video-mute__icon video-mute__icon--unmuted" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+            </svg>
+        </button>
+    </section>
+
+    <!-- ========== Clients Section ========== -->
+    <section class="section clients" id="clients">
+        <div class="container">
+            <div class="clients__header" data-aos="fade-up">
+                <h2 class="section__title" data-i18n="clients.title">موثوق به من قبل رواد الصناعة</h2>
+                <p class="section__subtitle" data-i18n="clients.subtitle">
+                    نخدم أكثر من 100 عميل في مختلف القطاعات.
+                </p>
+            </div>
+        </div>
+
+        <!-- Marquee Slider -->
+        <div class="marquee" data-aos="fade-up" data-aos-delay="100">
+            <div class="marquee__track marquee__track--right">
+                <div class="marquee__content">
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                            alt="Netflix"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg" alt="Sony"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.svg"
+                            alt="Adobe"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                            alt="Microsoft"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                            alt="Meta"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+                            alt="Spotify"></div>
+                </div>
+                <div class="marquee__content" aria-hidden="true">
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                            alt="Netflix"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg" alt="Sony"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.svg"
+                            alt="Adobe"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                            alt="Microsoft"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                            alt="Meta"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+                            alt="Spotify"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Partners Section ========== -->
+    <section class="section partners" id="partners">
+        <div class="container">
+            <div class="partners__header" data-aos="fade-up">
+                <h2 class="section__title" data-i18n="partners.title">شركاؤنا في التوزيع والبث الإعلامي</h2>
+            </div>
+        </div>
+
+        <!-- Marquee Slider (Reverse) -->
+        <div class="marquee" data-aos="fade-up" data-aos-delay="100">
+            <div class="marquee__track marquee__track--left">
+                <div class="marquee__content">
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Canon_wordmark.svg" alt="Canon">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/1/1b/DJI_logo.svg" alt="DJI"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg"
+                            alt="YouTube"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Vimeo_Logo.svg" alt="Vimeo"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg"
+                            alt="Premiere Pro"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg"
+                            alt="After Effects"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/90/DaVinci_Resolve_17_logo.svg"
+                            alt="DaVinci Resolve"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Nikon_Logo.svg" alt="Nikon"></div>
+                </div>
+                <div class="marquee__content" aria-hidden="true">
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Canon_wordmark.svg" alt="Canon">
+                    </div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/1/1b/DJI_logo.svg" alt="DJI"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg"
+                            alt="YouTube"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Vimeo_Logo.svg" alt="Vimeo"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg"
+                            alt="Premiere Pro"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg"
+                            alt="After Effects"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/90/DaVinci_Resolve_17_logo.svg"
+                            alt="DaVinci Resolve"></div>
+                    <div class="marquee__item"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Nikon_Logo.svg" alt="Nikon"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Contact Section ========== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact__header" data-aos="fade-up">
+                <span class="section__label" data-i18n="contact.label">تواصل معنا</span>
+                <h2 class="section__title" data-i18n="contact.title">لنبدأ مشروعك القادم</h2>
+            </div>
+
+            <div class="contact__wrapper">
+                <!-- Contact Info -->
+                <div class="contact__info" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact__item">
+                        <h4 class="contact__item-label" data-i18n="contact.email">البريد الإلكتروني</h4>
+                        <a href="mailto:info@crewmoon.com" class="contact__item-value">info@crewmoon.com</a>
+                    </div>
+                    <div class="contact__item">
+                        <h4 class="contact__item-label" data-i18n="contact.phone">الهاتف</h4>
+                        <a href="tel:+966500000000" class="contact__item-value">+966 50 000 0000</a>
+                    </div>
+                    <div class="contact__item">
+                        <h4 class="contact__item-label" data-i18n="contact.address">العنوان</h4>
+                        <p class="contact__item-value" data-i18n="contact.addressValue">الرياض، المملكة العربية السعودية
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact__form" id="contactForm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact__form-row">
+                        <div class="form-group">
+                            <label class="form-group__label" data-i18n="contact.form.name">الاسم الكامل</label>
+                            <input type="text" name="name" class="form-group__input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__label" data-i18n="contact.form.email">البريد الإلكتروني</label>
+                            <input type="email" name="email" class="form-group__input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" data-i18n="contact.form.message">الرسالة</label>
+                        <textarea name="message" class="form-group__textarea" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary" data-i18n="contact.form.submit">إرسال
+                        الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <!-- Footer Top -->
+            <div class="footer__top">
+                <!-- Brand -->
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <img src="assets/images/logo.png" alt="Crew Moon" class="footer__logo-img">
+                        <span class="footer__logo-text">CREW MOON</span>
+                    </a>
+                    <p class="footer__tagline" data-i18n="footer.tagline">كرو مون - إنتاج إعلامي متكامل</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer__links">
+                    <h4 class="footer__links-title" data-i18n="footer.quickLinks">روابط سريعة</h4>
+                    <a href="#hero" class="footer__link" data-i18n="nav.home">الرئيسية</a>
+                    <a href="#about" class="footer__link" data-i18n="nav.about">عنّا</a>
+                    <a href="#services" class="footer__link" data-i18n="nav.services">خدماتنا</a>
+                    <a href="#showreel" class="footer__link" data-i18n="nav.work">أعمالنا</a>
+                    <a href="#rental" class="footer__link" data-i18n="nav.rental">التأجير</a>
+                    <a href="#contact" class="footer__link" data-i18n="nav.contact">تواصل</a>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer__links">
+                    <h4 class="footer__links-title" data-i18n="footer.contact">التواصل</h4>
+                    <a href="mailto:info@crewmoon.com" class="footer__link">info@crewmoon.com</a>
+                    <a href="tel:+966500000000" class="footer__link">+966 50 000 0000</a>
+                    <span class="footer__link" data-i18n="contact.addressValue">الرياض، السعودية</span>
+                </div>
+
+                <!-- Social -->
+                <div class="footer__social">
+                    <h4 class="footer__links-title" data-i18n="footer.social">تابعنا</h4>
+                    <div class="footer__social-links">
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright" data-i18n="footer.copyright">© 2026 كرو مون. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== Scripts ========== -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

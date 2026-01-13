@@ -1,0 +1,165 @@
+/* ==============================================
+   CREW MOON - Footer
+   paulkram.com Inspired
+   ============================================== */
+
+.footer {
+    background: linear-gradient(180deg,
+            #1e1e1e 0%,
+            #2a2a2a 50%,
+            #1f1f1f 100%);
+    color: var(--color-text-light);
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background accent */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--color-accent) 50%,
+            transparent 100%);
+    opacity: 0.5;
+}
+
+/* Top Section */
+.footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    border-bottom: 1px solid rgba(197, 165, 114, 0.2);
+}
+
+/* Brand */
+.footer__brand {
+    max-width: 300px;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer__logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.footer__logo-text {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-light);
+    /* Kept white for contrast, could be accent */
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+}
+
+.footer__tagline {
+    font-size: var(--font-size-sm);
+    color: rgba(197, 165, 114, 0.8);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 0;
+}
+
+/* Links */
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer__links-title {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer__link {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-base);
+    padding: var(--spacing-xs) 0;
+}
+
+.footer__link:hover {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+/* Social */
+.footer__social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer__social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(197, 165, 114, 0.1);
+    border: 1px solid rgba(197, 165, 114, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    transition: all var(--transition-base);
+}
+
+.footer__social-link:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(197, 165, 114, 0.3);
+}
+
+/* Bottom Section */
+.footer__bottom {
+    padding-top: var(--spacing-xl);
+    text-align: center;
+}
+
+.footer__copyright {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+    }
+
+    .footer__brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer__top {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .footer__brand {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,128 @@
+/* ==============================================
+   CREW MOON - Showreel Section
+   With Autoplay Video & Mute Button
+   ============================================== */
+
+.showreel {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Video Background */
+.showreel__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.showreel__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showreel__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* Content */
+.showreel__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--spacing-4xl) 0;
+}
+
+.showreel__text {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-3xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: var(--line-height-relaxed);
+}
+
+/* Actions Row */
+.showreel__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* CTA Button */
+.showreel__cta {
+    padding: var(--spacing-md) var(--spacing-2xl);
+}
+
+/* Play Button */
+.showreel__play {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-text-light);
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    border: none;
+}
+
+.showreel__play svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 3px;
+}
+
+[dir="rtl"] .showreel__play svg {
+    margin-left: 0;
+    margin-right: 3px;
+}
+
+.showreel__play:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .showreel {
+        min-height: 50vh;
+    }
+
+    .showreel__text {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .showreel__play {
+        width: 50px;
+        height: 50px;
+    }
+
+    .showreel__play svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .showreel__actions {
+        gap: var(--spacing-md);
+    }
+}

@@ -1,0 +1,102 @@
+/* ==============================================
+   CREW MOON - Clients Section (Marquee)
+   paulkram.com Inspired
+   ============================================== */
+
+.clients {
+    background: var(--color-bg);
+    overflow: hidden;
+}
+
+.clients__header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* Marquee Container */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: var(--spacing-xl) 0;
+}
+
+.marquee__track {
+    display: flex;
+    width: max-content;
+}
+
+.marquee__track--right {
+    animation: marqueeRight 40s linear infinite;
+}
+
+.marquee__track--left {
+    animation: marqueeLeft 40s linear infinite;
+}
+
+.marquee__content {
+    display: flex;
+    gap: var(--spacing-4xl);
+    padding: 0 var(--spacing-2xl);
+}
+
+.marquee__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    min-width: 120px;
+}
+
+.marquee__item img {
+    height: 100%;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all var(--transition-base);
+}
+
+.marquee__item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes marqueeRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marqueeLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pause on hover */
+.marquee:hover .marquee__track {
+    animation-play-state: paused;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .marquee__item {
+        height: 35px;
+        min-width: 80px;
+    }
+
+    .marquee__content {
+        gap: var(--spacing-2xl);
+    }
+}

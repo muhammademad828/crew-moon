@@ -1,0 +1,28 @@
+/* ==============================================
+   CREW MOON - Partners Section
+   Uses same marquee styles from clients.css
+   ============================================== */
+
+.partners {
+    background: var(--color-bg-alt);
+    overflow: hidden;
+    padding-top: var(--spacing-4xl);
+    padding-bottom: var(--spacing-4xl);
+}
+
+.partners__header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.partners__header .section__title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .partners__header .section__title {
+        font-size: var(--font-size-xl);
+    }
+}

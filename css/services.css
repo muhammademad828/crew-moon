@@ -1,0 +1,352 @@
+/* ==============================================
+   CREW MOON - Services Section
+   With Image Placeholders
+   ============================================== */
+
+.services {
+    background: var(--color-bg-alt);
+}
+
+/* Header */
+.services__header {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.services__header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.services__header .section__title {
+    margin-bottom: 0;
+}
+
+/* Grid */
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--spacing-xl);
+    row-gap: 80px;
+    /* Increase row gap to accommodate antennas */
+    margin-top: 40px;
+}
+
+/* Service Card with Image */
+/* Service Card with TV Effect */
+/* ==============================================
+   Retro TV Service Cards
+   ============================================== */
+
+.service-card {
+    /* TV Chassis */
+    background: #2b2b2b;
+    border-radius: 20px;
+    padding: 15px;
+    padding-top: 35px;
+    /* Space for antenna base */
+    position: relative;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 2px 3px rgba(255, 255, 255, 0.1),
+        /* Top highlight */
+        inset 0 -5px 10px rgba(0, 0, 0, 0.5);
+    /* Bottom shading */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* No margin-top needed here if grid row-gap handles it, 
+       but keeping a bit helps with hover states */
+    margin-top: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    z-index: 10;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 2px 3px rgba(255, 255, 255, 0.1);
+}
+
+/* --- Antenna System --- */
+/* Base (The black plastic connector) */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    /* Sits on top of the chassis which starts slightly lower due to padding? 
+                 Actually relative to .service-card which includes padding-top:35px. 
+                 So top:5px is inside the padding area. Perfect. */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 30px;
+    background: radial-gradient(circle at center, #333 0%, #111 100%);
+    border-radius: 50% 50% 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+/* Rods (The Rabbit Ears) */
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    /* Sticks out of the top */
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    /* Move down slightly to connect with base */
+    width: 140px;
+    height: 90px;
+    z-index: -1;
+    pointer-events: none;
+
+    /* Draw V-Shape Rabbit Ears */
+    background:
+        /* Left Rod Ball Tip */
+        radial-gradient(circle at 0% 0%, #ddd 0%, #777 60%, transparent 62%) no-repeat 0 0 / 12px 12px,
+        /* Right Rod Ball Tip */
+        radial-gradient(circle at 100% 0%, #ddd 0%, #777 60%, transparent 62%) no-repeat 100% 0 / 12px 12px,
+        /* Left Rod Shaft */
+        linear-gradient(to top left, transparent calc(50% - 2px), #aaa 50%, #666 50%, transparent calc(50% + 2px)) no-repeat center / 100% 100%,
+        /* Right Rod Shaft */
+        linear-gradient(to top right, transparent calc(50% - 2px), #aaa 50%, #666 50%, transparent calc(50% + 2px)) no-repeat center / 100% 100%;
+
+    /* NOTE: The linear-gradient diagonal logic on a rectangle can be unexpected. 
+       Let's use a simpler approach for the V shape to ensure they meet at bottom center. */
+    background-image:
+        /* Left Tip */
+        radial-gradient(circle, #f0f0f0 0%, #888 100%),
+        /* Right Tip */
+        radial-gradient(circle, #f0f0f0 0%, #888 100%),
+        /* Left Rod */
+        linear-gradient(70deg, transparent 48%, #c0c0c0 48.5%, #777 50%, transparent 51.5%),
+        /* Right Rod */
+        linear-gradient(-70deg, transparent 48%, #c0c0c0 48.5%, #777 50%, transparent 51.5%);
+
+    background-size:
+        14px 14px,
+        /* Tip L */
+        14px 14px,
+        /* Tip R */
+        55% 100%,
+        /* Rod L - limit width to avoid crossing */
+        55% 100%;
+    /* Rod R */
+
+    background-position:
+        5% 5%,
+        /* Tip L pos */
+        95% 5%,
+        /* Tip R pos */
+        0% 0%,
+        /* Rod L pos */
+        100% 0%;
+    /* Rod R pos */
+
+    background-repeat: no-repeat;
+
+    /* Drop shadow for the antenna against the bg */
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+}
+
+
+/* --- The Screen (Image Wrapper) --- */
+.service-card__image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 4px 4px 4px 4px;
+    /* Slightly rounded corners of physical screen */
+    /* Deep Bezel */
+    border: 14px solid #111;
+    border-radius: 10px;
+    /* Bezel roundness */
+    background: #000;
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.9),
+        /* Deep bezel shadow */
+        0 1px 2px rgba(255, 255, 255, 0.1);
+    /* Bezel highlight */
+    transform: translateZ(0);
+}
+
+/* Glass Screen Effect */
+.service-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        /* Scanlines - darker and tighter */
+        repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.2) 0px,
+            rgba(0, 0, 0, 0.2) 1px,
+            transparent 1px,
+            transparent 3px),
+        /* Vignette/Tube Curve */
+        radial-gradient(circle at 50% 50%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.4) 90%,
+            rgba(0, 0, 0, 0.7) 100%),
+        /* Screen Glare */
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 25%, transparent 100%);
+    pointer-events: none;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+}
+
+.service-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Vintage Color Grade */
+    filter: contrast(1.2) brightness(1.1) saturate(1.1) sepia(0.15);
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-card__image img {
+    transform: scale(1.1);
+    filter: contrast(1.2) brightness(1.2) saturate(1.2) sepia(0.05);
+    /* Clearer when active */
+}
+
+/* Placeholder when no image */
+.service-card__image::before {
+    content: 'NO SIGNAL';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    color: #444;
+    background: #1a1a1a;
+    z-index: 0;
+    letter-spacing: 2px;
+}
+
+.service-card__image img {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Control Panel (Content) --- */
+.service-card__content {
+    margin-top: 15px;
+    padding: 10px 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Faux Speaker Grille Pattern on the side? Or clean panel. Let's do clean clean panel with a "brand" look */
+    border-top: 2px solid #222;
+}
+
+/* Channel Number (Digital Display) */
+.service-card__number {
+    position: absolute;
+    top: -270px;
+    /* Move inside the screen area? No, let's put it on the TV casing */
+    right: 25px;
+    /* Top right of screen bezel */
+    background: rgba(0, 255, 0, 0.8);
+    color: #000;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    z-index: 5;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    pointer-events: none;
+    content: "CH " attr(data-number);
+    /* If we could access it, but CSS can't read internal text easily. Keep existing layout but style heavily */
+    /* Reverting position to be part of content flow but styled as a badge */
+    position: static;
+    align-self: flex-start;
+    background: #111;
+    color: #0f0;
+    /* Green Phosphor */
+    border: 1px solid #333;
+    text-shadow: 0 0 2px #0f0;
+    margin-bottom: 5px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+}
+
+.service-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    /* Off-white plastic text */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.service-card__desc {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Faux Controls / Knobs decoration */
+.service-card__content::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background:
+        radial-gradient(circle at center, #1a1a1a 40%, #333 41%, #333 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    /* Make two knobs */
+    box-shadow:
+        0 0 0 2px #1a1a1a,
+        0 50px 0 0 #333,
+        /* Second knob shadow form */
+        0 50px 0 2px #1a1a1a;
+    /* Second knob border */
+    /* This complex pseudo might be too much, let's keep it simple: Horizontal vents */
+    background: transparent;
+    border-radius: 0;
+    width: 4px;
+    height: 60px;
+    box-shadow:
+        -10px 0 0 #111,
+        -20px 0 0 #111,
+        -30px 0 0 #111;
+    opacity: 0.5;
+    display: none;
+    /* Hidden for now, cleaner look preferred */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .services__header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .services__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card__image {
+        height: 180px;
+    }
+
+    .service-card__content {
+        padding: var(--spacing-lg);
+    }
+}
