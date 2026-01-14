@@ -5,6 +5,14 @@
     padding-bottom: var(--spacing-4xl);
 }
 
+[dir="rtl"] .marquee__track--left .marquee__content {
+    animation-direction: reverse;
+}
+
+[dir="rtl"] .marquee__track--right .marquee__content {
+    animation-direction: reverse;
+}
+
 .partners__header {
     text-align: center;
     margin-bottom: var(--spacing-2xl);

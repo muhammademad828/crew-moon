@@ -87,6 +87,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     -webkit-mask-image: linear-gradient(to top, black 80%, rgba(0, 0, 0, 0.2) 100%);
+    mask-image: linear-gradient(to top, black 80%, rgba(0, 0, 0, 0.2) 100%);
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
 }
 
@@ -236,5 +237,10 @@
     .service-card__number {
         top: -240px;
         right: 15px;
+    }
+
+    [dir="rtl"] .service-card__number {
+        right: auto;
+        left: 15px;
     }
 }

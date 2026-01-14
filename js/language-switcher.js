@@ -11,7 +11,8 @@ class LanguageSwitcher {
             btn.addEventListener('click', (e) => {
                 const lang = e.target.dataset.langSwitch;
                 if (lang && lang !== this.currentLang) {
-                    this.setLanguage(lang, true);
+                    localStorage.setItem('crewmoon-lang', lang);
+                    window.location.reload();
                 }
             });
         });
@@ -22,11 +23,19 @@ class LanguageSwitcher {
         localStorage.setItem('crewmoon-lang', lang);
 
         document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
         document.querySelectorAll('[data-lang-switch]').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.langSwitch === lang);
         });
+
+        // Refresh AOS to update animations for new direction
+        if (window.AOS) {
+            setTimeout(() => {
+                window.AOS.refresh();
+            }, 100);
+        }
 
         this.updateContent(animate);
     }

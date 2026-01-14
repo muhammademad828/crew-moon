@@ -40,6 +40,25 @@ body::before {
 html[dir="rtl"] body,
 body[dir="rtl"] {
     text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] .section__label,
+[dir="rtl"] .hero__tagline,
+[dir="rtl"] .hero__subtitle {
+    letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .section__label {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 html[dir="ltr"] body,
