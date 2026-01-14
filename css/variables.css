@@ -3,29 +3,23 @@
   --color-primary-hover: #d4b88a;
   --color-accent: #3b82f6;
   --color-accent-hover: #60a5fa;
-
   --color-bg: #1a1a1a;
   --color-bg-secondary: #222222;
   --color-bg-alt: #252525;
   --color-bg-footer: #111111;
   --color-bg-overlay: rgba(0, 0, 0, 0.85);
-
   --color-surface: rgba(255, 255, 255, 0.05);
   --color-surface-hover: rgba(255, 255, 255, 0.1);
   --color-surface-dark: rgba(0, 0, 0, 0.3);
-
   --color-border: rgba(255, 255, 255, 0.1);
   --color-border-hover: rgba(255, 255, 255, 0.2);
-
   --color-text-primary: #ffffff;
   --color-text-secondary: rgba(255, 255, 255, 0.7);
   --color-text-muted: rgba(255, 255, 255, 0.5);
   --color-text-light: #ffffff;
   --color-text-inverse: #1a1a1a;
-
   --font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-family-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
-
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -38,24 +32,20 @@
   --font-size-6xl: 5rem;
   --font-size-7xl: 7rem;
   --font-size-8xl: 10rem;
-
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
-
   --line-height-tight: 1.1;
   --line-height-snug: 1.2;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
-
   --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.05em;
   --letter-spacing-wider: 0.1em;
   --letter-spacing-widest: 0.2em;
-
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -66,31 +56,24 @@
   --spacing-4xl: 6rem;
   --spacing-5xl: 8rem;
   --spacing-6xl: 12rem;
-
   --container-max-width: 1400px;
   --container-padding: 2rem;
   --section-padding: 5rem;
-  /* 80px */
-
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
   --radius-full: 9999px;
-
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
-
   --transition-fast: 150ms ease;
   --transition-base: 400ms ease;
-  /* 0.4s */
   --transition-slow: 600ms ease;
   --transition-smooth: 600ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
   --z-below: -1;
   --z-base: 1;
   --z-dropdown: 100;
@@ -99,7 +82,6 @@
   --z-modal: 2000;
   --z-tooltip: 3000;
 }
-
 .section--dark {
   --color-text-primary: #ffffff;
   --color-text-secondary: rgba(255, 255, 255, 0.8);
@@ -109,34 +91,31 @@
   --color-surface: rgba(255, 255, 255, 0.1);
   --color-surface-hover: rgba(255, 255, 255, 0.15);
 }
-
 @media (max-width: 1024px) {
   :root {
     --font-size-6xl: 4rem;
     --font-size-7xl: 5rem;
     --font-size-8xl: 6rem;
-    --section-padding: 3rem;
+    --section-padding: 4rem;
   }
 }
-
 @media (max-width: 768px) {
   :root {
     --font-size-5xl: 2.5rem;
     --font-size-6xl: 3rem;
     --font-size-7xl: 3.5rem;
     --font-size-8xl: 4rem;
-    --section-padding: 4rem;
+    --section-padding: 3rem;
     --container-padding: 1.25rem;
   }
 }
-
 @media (max-width: 480px) {
   :root {
     --font-size-5xl: 2rem;
     --font-size-6xl: 2.5rem;
     --font-size-7xl: 3rem;
     --font-size-8xl: 3.5rem;
-    --section-padding: 3rem;
+    --section-padding: 2.5rem;
     --container-padding: 1rem;
   }
 }

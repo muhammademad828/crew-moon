@@ -5,11 +5,11 @@
     padding-bottom: var(--spacing-4xl);
 }
 
-[dir="rtl"] .marquee__track--left .marquee__content {
+[dir="rtl"] .marquee__track--left {
     animation-direction: reverse;
 }
 
-[dir="rtl"] .marquee__track--right .marquee__content {
+[dir="rtl"] .marquee__track--right {
     animation-direction: reverse;
 }
 

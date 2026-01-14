@@ -76,7 +76,6 @@ const translations = {
       copyright: "© 2026 كرو مون. جميع الحقوق محفوظة."
     }
   },
-
   en: {
     nav: {
       home: "Home",
@@ -155,7 +154,6 @@ const translations = {
     }
   }
 };
-
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = translations;
 }

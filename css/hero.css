@@ -1,12 +1,12 @@
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
-
 .hero__bg {
     position: absolute;
     top: 0;
@@ -15,13 +15,11 @@
     bottom: 0;
     z-index: -1;
 }
-
 .hero__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .hero__overlay {
     position: absolute;
     top: 0;
@@ -30,14 +28,12 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
 }
-
 .hero__content {
     position: relative;
     z-index: 1;
     text-align: center;
     padding: var(--spacing-4xl) 0;
 }
-
 .hero__title {
     display: flex;
     justify-content: center;
@@ -47,7 +43,6 @@
     margin-bottom: var(--spacing-2xl);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .hero__title-ar {
     display: none;
     font-family: 'Bebas Neue', 'Impact', sans-serif;
@@ -59,7 +54,6 @@
     line-height: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .hero__title-en {
     display: flex;
     justify-content: center;
@@ -68,23 +62,18 @@
     gap: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 [lang="ar"] .hero__title-ar {
     display: block;
 }
-
 [lang="ar"] .hero__title-en {
     display: none;
 }
-
 [lang="en"] .hero__title-ar {
     display: none;
 }
-
 [lang="en"] .hero__title-en {
     display: flex;
 }
-
 .hero__title-letter {
     display: inline-block;
     font-family: 'Bebas Neue', 'Impact', sans-serif;
@@ -97,12 +86,10 @@
     margin: 0 0.02em;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .hero__title-space {
     display: inline-block;
     width: 0.8em;
 }
-
 .hero__tagline {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-normal);
@@ -111,7 +98,6 @@
     letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
 }
-
 .hero__subtitle {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
@@ -120,11 +106,9 @@
     letter-spacing: var(--letter-spacing-widest);
     margin-bottom: var(--spacing-3xl);
 }
-
 .hero__cta {
     margin-top: var(--spacing-xl);
 }
-
 .hero__scroll {
     position: absolute;
     bottom: var(--spacing-2xl);
@@ -135,7 +119,6 @@
     align-items: center;
     gap: var(--spacing-md);
 }
-
 .hero__scroll-text {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
@@ -144,28 +127,23 @@
     letter-spacing: var(--letter-spacing-widest);
     writing-mode: vertical-rl;
 }
-
 .hero__scroll-line {
     width: 1px;
     height: 60px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
     animation: scrollLine 2s ease-in-out infinite;
 }
-
 @keyframes scrollLine {
-
     0%,
     100% {
         transform: scaleY(1);
         opacity: 1;
     }
-
     50% {
         transform: scaleY(0.5);
         opacity: 0.5;
     }
 }
-
 .video-mute {
     position: absolute;
     bottom: var(--spacing-2xl);
@@ -184,76 +162,61 @@
     transition: all var(--transition-base);
     z-index: 10;
 }
-
 [dir="rtl"] .video-mute {
     right: auto;
     left: var(--spacing-2xl);
 }
-
 .video-mute:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: scale(1.1);
 }
-
 .video-mute__icon {
     width: 22px;
     height: 22px;
 }
-
 .video-mute__icon--unmuted {
     display: none;
 }
-
 .video-mute.unmuted .video-mute__icon--muted {
     display: none;
 }
-
 .video-mute.unmuted .video-mute__icon--unmuted {
     display: block;
 }
-
 .video-mute--showreel {
     bottom: var(--spacing-xl);
 }
-
 @media (max-width: 1024px) {
     .hero__title-letter {
         font-size: clamp(3rem, 12vw, 8rem);
         letter-spacing: 0.12em;
     }
 }
-
 @media (max-width: 768px) {
     .hero__title-letter {
         font-size: clamp(2.5rem, 10vw, 5rem);
         letter-spacing: 0.1em;
     }
-
     .hero__title-space {
         width: 0.5em;
     }
-
     .hero__tagline {
         font-size: var(--font-size-base);
     }
-
     .hero__scroll {
         display: none;
     }
-
     .video-mute {
         width: 44px;
         height: 44px;
         bottom: var(--spacing-lg);
         right: var(--spacing-lg);
     }
-
     [dir="rtl"] .video-mute {
         right: auto;
         left: var(--spacing-lg);
     }
 }
-
 @media (max-width: 480px) {
     .hero__title-letter {
         font-size: clamp(2rem, 8vw, 3.5rem);

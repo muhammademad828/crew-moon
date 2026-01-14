@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
-
 @import url('./variables.css');
 @import url('./base.css');
-
 @import url('./navbar.css');
 @import url('./hero.css');
 @import url('./divider.css');
@@ -13,36 +11,29 @@
 @import url('./partners.css');
 @import url('./contact.css');
 @import url('./footer.css');
-
 [data-aos] {
     pointer-events: auto !important;
 }
-
 [dir="rtl"] [data-aos="fade-left"] {
     transform: translateX(-30px);
 }
-
 [dir="rtl"] [data-aos="fade-right"] {
     transform: translateX(30px);
 }
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }

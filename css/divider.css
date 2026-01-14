@@ -1,7 +1,3 @@
-/* ==============================================
-   CREW MOON - Image Divider Section
-   paulkram.com Inspired Parallax
-   ============================================== */
 
 .divider {
     position: relative;
@@ -9,7 +5,6 @@
     min-height: 400px;
     overflow: hidden;
 }
-
 .divider__image {
     position: absolute;
     top: -20%;
@@ -21,8 +16,6 @@
     background-attachment: fixed;
     background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=600&fit=crop');
 }
-
-/* Mobile - disable fixed attachment for performance */
 @media (max-width: 768px) {
     .divider__image {
         background-attachment: scroll;
