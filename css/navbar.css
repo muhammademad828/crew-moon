@@ -1,8 +1,3 @@
-/* ==============================================
-   CREW MOON - Header/Navbar Styles
-   paulkram.com Inspired
-   ============================================== */
-
 .header {
     position: fixed;
     top: 0;
@@ -14,11 +9,11 @@
 }
 
 .header--scrolled {
-    background: rgba(232, 228, 216, 0.95);
+    background: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: var(--spacing-md) 0;
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
 }
 
 .header__container {
@@ -28,7 +23,6 @@
     gap: var(--spacing-xl);
 }
 
-/* Logo */
 .header__logo {
     display: flex;
     align-items: center;
@@ -38,8 +32,8 @@
 }
 
 .header__logo-img {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
 }
 
@@ -56,7 +50,6 @@
     color: var(--color-text-primary);
 }
 
-/* Navigation */
 .header__nav {
     display: flex;
     align-items: center;
@@ -93,14 +86,12 @@
     color: var(--color-text-primary);
 }
 
-/* Actions */
 .header__actions {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
 }
 
-/* Language Switcher */
 .header__lang {
     display: flex;
     align-items: center;
@@ -136,7 +127,6 @@
     color: var(--color-text-primary);
 }
 
-/* Mobile Toggle */
 .header__toggle {
     display: none;
     flex-direction: column;
@@ -171,7 +161,6 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Overlay */
 .header__overlay {
     position: fixed;
     top: 0;
@@ -190,7 +179,6 @@
     visibility: visible;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 1024px) {
     .header__nav {
         gap: var(--spacing-lg);

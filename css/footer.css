@@ -1,20 +1,11 @@
-/* ==============================================
-   CREW MOON - Footer
-   paulkram.com Inspired
-   ============================================== */
-
 .footer {
-    background: linear-gradient(180deg,
-            #1e1e1e 0%,
-            #2a2a2a 50%,
-            #1f1f1f 100%);
-    color: var(--color-text-light);
-    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--color-bg-footer);
+    color: var(--color-text-primary);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
     position: relative;
     overflow: hidden;
 }
 
-/* Background accent */
 .footer::before {
     content: '';
     position: absolute;
@@ -29,16 +20,14 @@
     opacity: 0.5;
 }
 
-/* Top Section */
 .footer__top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: var(--spacing-3xl);
-    padding-bottom: var(--spacing-3xl);
-    border-bottom: 1px solid rgba(197, 165, 114, 0.2);
+    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Brand */
 .footer__brand {
     max-width: 300px;
 }
@@ -51,33 +40,36 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.footer__logo-img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
 .footer__logo-text {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-light);
-    /* Kept white for contrast, could be accent */
+    color: var(--color-text-primary);
     letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
 }
 
 .footer__tagline {
     font-size: var(--font-size-sm);
-    color: rgba(197, 165, 114, 0.8);
+    color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
     margin-bottom: 0;
 }
 
-/* Links */
 .footer__links {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer__links--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs) var(--spacing-md);
+    text-align: center;
 }
 
 .footer__links-title {
@@ -86,14 +78,18 @@
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
     color: var(--color-accent);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    grid-column: 1 / -1;
+    text-align: center;
+    width: 100%;
 }
 
 .footer__link {
     font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-secondary);
     transition: color var(--transition-base);
     padding: var(--spacing-xs) 0;
+    width: 100%;
 }
 
 .footer__link:hover {
@@ -101,10 +97,28 @@
     opacity: 1;
 }
 
-/* Social */
 .footer__social-links {
     display: flex;
     gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.footer__social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__logo-img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.footer__logo-img:hover {
+    opacity: 0.8;
 }
 
 .footer__social-link {
@@ -114,22 +128,21 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(197, 165, 114, 0.1);
-    border: 1px solid rgba(197, 165, 114, 0.2);
-    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--color-text-primary);
     transition: all var(--transition-base);
 }
 
 .footer__social-link:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-primary);
+    color: var(--color-text-light);
     opacity: 1;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(197, 165, 114, 0.3);
 }
 
-/* Bottom Section */
 .footer__bottom {
     padding-top: var(--spacing-xl);
     text-align: center;
@@ -137,11 +150,10 @@
 
 .footer__copyright {
     font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-text-muted);
     margin-bottom: 0;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 1024px) {
     .footer__top {
         grid-template-columns: 1fr 1fr;

@@ -1,8 +1,3 @@
-/* ==============================================
-   CREW MOON - Showreel Section
-   With Autoplay Video & Mute Button
-   ============================================== */
-
 .showreel {
     position: relative;
     min-height: 70vh;
@@ -12,7 +7,6 @@
     overflow: hidden;
 }
 
-/* Video Background */
 .showreel__bg {
     position: absolute;
     top: 0;
@@ -34,29 +28,88 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
 }
 
-/* Content */
 .showreel__content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    text-align: center;
+    padding: var(--spacing-4xl) 0;
+}
+
+.showreel__viewfinder {
+    position: absolute;
+    top: clamp(60px, 10vw, 120px);
+    left: clamp(40px, 5vw, 80px);
+    right: clamp(40px, 5vw, 80px);
+    bottom: clamp(60px, 10vw, 120px);
+    z-index: 10;
+    pointer-events: none;
+    background:
+        linear-gradient(white, white) top left / 60px 2px no-repeat,
+        linear-gradient(white, white) top left / 2px 60px no-repeat,
+        linear-gradient(white, white) top right / 60px 2px no-repeat,
+        linear-gradient(white, white) top right / 2px 60px no-repeat,
+        linear-gradient(white, white) bottom left / 60px 2px no-repeat,
+        linear-gradient(white, white) bottom left / 2px 60px no-repeat,
+        linear-gradient(white, white) bottom right / 60px 2px no-repeat,
+        linear-gradient(white, white) bottom right / 2px 60px no-repeat;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 5px rgba(255, 0, 0, 0.4));
+}
+
+.showreel__viewfinder::after {
+    content: 'REC';
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    animation: blink 2s infinite;
+    display: flex;
+    align-items: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.showreel__viewfinder::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ff0000;
+    border-radius: 50%;
+    position: absolute;
+    top: 24px;
+    left: 10px;
+    animation: blink 2s infinite;
+    box-shadow: 0 0 8px #ff0000;
+}
+
+.showreel__content {
+    position: relative;
+    z-index: 2;
     text-align: center;
     padding: var(--spacing-4xl) 0;
 }
 
 .showreel__text {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-normal);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: var(--font-weight-black);
     color: var(--color-text-light);
     margin-bottom: var(--spacing-3xl);
-    max-width: 700px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    line-height: var(--line-height-relaxed);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Actions Row */
 .showreel__actions {
     display: flex;
     align-items: center;
@@ -65,43 +118,73 @@
     flex-wrap: wrap;
 }
 
-/* CTA Button */
 .showreel__cta {
     padding: var(--spacing-md) var(--spacing-2xl);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--color-text-light);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-wide);
+    transition: all var(--transition-base);
 }
 
-/* Play Button */
-.showreel__play {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.showreel__cta:hover {
     background: var(--color-text-light);
     color: var(--color-primary);
+    border-color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.showreel__play {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--color-text-light);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all var(--transition-smooth);
-    border: none;
 }
 
 .showreel__play svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 3px;
+    width: 28px;
+    height: 28px;
+    margin-left: 4px;
+    fill: currentColor;
 }
 
 [dir="rtl"] .showreel__play svg {
     margin-left: 0;
-    margin-right: 3px;
+    margin-right: 4px;
 }
 
 .showreel__play:hover {
     transform: scale(1.1);
+    background: var(--color-text-light);
+    color: var(--color-primary);
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* ===== Responsive ===== */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .showreel {
         min-height: 50vh;

@@ -1,10 +1,4 @@
-/**
- * CREW MOON - Main JavaScript
- * Handles all interactive functionality
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all modules
     initHeader();
     initVideoMute();
     initShowreel();
@@ -15,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     init3DScrollEffects();
 });
 
-/**
- * Header Functionality
- */
 function initHeader() {
     const header = document.querySelector('.header');
     const navToggle = document.querySelector('.header__toggle');
@@ -25,7 +16,6 @@ function initHeader() {
     const navOverlay = document.querySelector('.header__overlay');
     const navLinks = document.querySelectorAll('.header__link');
 
-    // Scroll effect - add scrolled class
     window.addEventListener('scroll', throttle(() => {
         if (window.scrollY > 100) {
             header.classList.add('header--scrolled');
@@ -34,7 +24,6 @@ function initHeader() {
         }
     }, 50));
 
-    // Mobile menu toggle
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
@@ -44,12 +33,10 @@ function initHeader() {
         });
     }
 
-    // Close menu on overlay click
     if (navOverlay) {
         navOverlay.addEventListener('click', closeMenu);
     }
 
-    // Close menu on link click
     navLinks.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
@@ -61,7 +48,6 @@ function initHeader() {
         document.body.style.overflow = '';
     }
 
-    // Active link on scroll
     window.addEventListener('scroll', throttle(() => {
         const sections = document.querySelectorAll('section[id]');
         const scrollPos = window.scrollY + 150;
@@ -83,11 +69,7 @@ function initHeader() {
     }, 100));
 }
 
-/**
- * Video Mute/Unmute Controls
- */
 function initVideoMute() {
-    // Hero video mute
     const heroVideo = document.getElementById('heroVideo');
     const heroMute = document.getElementById('heroMute');
 
@@ -95,7 +77,6 @@ function initVideoMute() {
         setupMuteButton(heroVideo, heroMute);
     }
 
-    // Showreel video mute
     const showreelVideo = document.getElementById('showreelVideo');
     const showreelMute = document.getElementById('showreelMute');
 
@@ -116,15 +97,12 @@ function setupMuteButton(video, button) {
     });
 }
 
-/**
- * Showreel Section Controls
- */
 function initShowreel() {
     const showreelVideo = document.getElementById('showreelVideo');
     const playButton = document.getElementById('showreelPlay');
 
     if (showreelVideo && playButton) {
-        let isPlaying = true; // Autoplay is on
+        let isPlaying = true;
 
         playButton.addEventListener('click', () => {
             if (isPlaying) {
@@ -137,7 +115,6 @@ function initShowreel() {
             isPlaying = !isPlaying;
         });
 
-        // Update button state when video starts playing
         showreelVideo.addEventListener('play', () => {
             isPlaying = true;
             playButton.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>`;
@@ -150,9 +127,6 @@ function initShowreel() {
     }
 }
 
-/**
- * Scroll Animations (AOS)
- */
 function initScrollAnimations() {
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -165,7 +139,6 @@ function initScrollAnimations() {
         return;
     }
 
-    // Fallback: Custom scroll animations
     const animatedElements = document.querySelectorAll('[data-aos]');
 
     const observer = new IntersectionObserver((entries) => {
@@ -214,9 +187,6 @@ function initScrollAnimations() {
     });
 }
 
-/**
- * Smooth Scroll for Anchor Links
- */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -239,9 +209,6 @@ function initSmoothScroll() {
     });
 }
 
-/**
- * Contact Form
- */
 function initContactForm() {
     const form = document.querySelector('.contact__form');
 
@@ -281,9 +248,6 @@ function initContactForm() {
     }
 }
 
-/**
- * Parallax Effect
- */
 function initParallax() {
     const dividerImage = document.querySelector('.divider__image');
 
@@ -299,12 +263,7 @@ function initParallax() {
         }, 16));
     }
 
-    /**
-     * Advanced 3D Scroll Effects
-     * Applies 3D transformations based on scroll position
-     */
     function init3DScrollEffects() {
-        // Select elements to apply 3D effects to
         const targetSelectors = [
             '.about__content',
             '.about__visual',
@@ -316,21 +275,17 @@ function initParallax() {
 
         if (targetElements.length === 0 || window.innerWidth < 768) return;
 
-        // Prepare elements: Wrap content in a 3D container to avoid AOS conflict
         targetElements.forEach(el => {
-            // Create wrapper
             const wrapper = document.createElement('div');
             wrapper.className = 'js-3d-tilt-wrapper';
             wrapper.style.transition = 'transform 0.1s linear';
             wrapper.style.transformStyle = 'preserve-3d';
             wrapper.style.willChange = 'transform';
 
-            // Move children to wrapper
             while (el.firstChild) {
                 wrapper.appendChild(el.firstChild);
             }
 
-            // Setup parent
             el.appendChild(wrapper);
             el.style.perspective = '1000px';
             el.style.transformStyle = 'preserve-3d';
@@ -338,7 +293,6 @@ function initParallax() {
 
         const tiltWrappers = document.querySelectorAll('.js-3d-tilt-wrapper');
 
-        // Scroll listener using requestAnimationFrame for performance
         let ticking = false;
 
         window.addEventListener('scroll', () => {
@@ -360,14 +314,11 @@ function initParallax() {
                 const rect = parent.getBoundingClientRect();
                 const elementCenter = rect.top + (rect.height / 2);
 
-                // Check if element is in viewport with buffer
-                // Only animate if parent is visible and AOS animation (if any) is done or started
                 if (rect.top < windowHeight + 50 && rect.bottom > -50) {
                     const distFromCenter = elementCenter - windowCenter;
                     const normalizedDist = distFromCenter / (windowHeight / 2);
 
-                    // Apply tilt
-                    const rotateX = normalizedDist * 15; // Increased intensity
+                    const rotateX = normalizedDist * 15;
 
                     el.style.transform = `rotateX(${-rotateX}deg) scale(${1 - Math.abs(normalizedDist) * 0.02})`;
                 }
@@ -376,9 +327,6 @@ function initParallax() {
     }
 }
 
-/**
- * Utility: Throttle function
- */
 function throttle(func, limit) {
     let inThrottle;
     return function (...args) {
@@ -390,9 +338,6 @@ function throttle(func, limit) {
     };
 }
 
-/**
- * Utility: Debounce function
- */
 function debounce(func, wait) {
     let timeout;
     return function (...args) {

@@ -9,40 +9,31 @@
     <meta name="keywords" content="إنتاج فيديو, بودكاست, بث مباشر, تغطية فعاليات, إنتاج إعلامي, Crew Moon">
     <meta name="author" content="Crew Moon">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Crew Moon - كل مشهد يحكي قصة">
     <meta property="og:description" content="نحوّل أفكارك إلى محتوى مرئي استثنائي">
     <meta property="og:type" content="website">
 
     <title>Crew Moon | كل مشهد يحكي قصة</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Bebas+Neue&display=swap"
         rel="stylesheet">
 
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <!-- ========== Header ========== -->
     <header class="header" id="header">
         <div class="container header__container">
-            <!-- Logo -->
             <a href="#" class="header__logo">
                 <img src="assets/images/logo.png" alt="Crew Moon Logo" class="header__logo-img">
-                <span class="header__logo-text">CREW MOON</span>
             </a>
 
-            <!-- Navigation -->
             <nav class="header__nav" id="navMenu">
                 <a href="#hero" class="header__link active" data-i18n="nav.home">الرئيسية</a>
                 <a href="#about" class="header__link" data-i18n="nav.about">عنّا</a>
@@ -52,9 +43,7 @@
                 <a href="#contact" class="header__link" data-i18n="nav.contact">تواصل</a>
             </nav>
 
-            <!-- Actions -->
             <div class="header__actions">
-                <!-- Language Switcher -->
                 <div class="header__lang">
                     <button class="header__lang-btn" data-lang-switch="en">EN</button>
                     <span class="header__lang-divider">/</span>
@@ -62,7 +51,6 @@
                 </div>
 
 
-                <!-- Mobile Toggle -->
                 <button class="header__toggle" id="navToggle" aria-label="Toggle menu">
                     <span class="header__toggle-bar"></span>
                     <span class="header__toggle-bar"></span>
@@ -71,30 +59,22 @@
             </div>
         </div>
 
-        <!-- Mobile Overlay -->
         <div class="header__overlay" id="navOverlay"></div>
     </header>
 
-    <!-- ========== Hero Section ========== -->
     <section class="hero section--dark" id="hero">
-        <!-- Video Background -->
         <div class="hero__bg">
             <video class="hero__video" id="heroVideo" autoplay muted loop playsinline>
-                <!-- Replace with your local video path -->
                 <source src="https://www.pexels.com/download/video/8262686/" type="video/mp4">
             </video>
             <div class="hero__overlay"></div>
         </div>
 
-        <!-- Content -->
         <div class="hero__content">
             <div class="container">
-                <!-- Main Title - VERGE Style for EN, Normal for AR -->
                 <h1 class="hero__title" data-aos="fade-up">
-                    <!-- Arabic Version - Full Text -->
                     <span class="hero__title-ar" lang="ar">كرو مون</span>
 
-                    <!-- English Version - Separated Letters (VERGE Style) -->
                     <span class="hero__title-en" lang="en">
                         <span class="hero__title-letter">C</span>
                         <span class="hero__title-letter">R</span>
@@ -108,24 +88,20 @@
                     </span>
                 </h1>
 
-                <!-- Tagline -->
                 <p class="hero__tagline" data-aos="fade-up" data-aos-delay="100" data-i18n="hero.tagline">
                     كل مشهد يحكي قصة
                 </p>
 
-                <!-- Subtitle -->
                 <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200" data-i18n="hero.subtitle">
                     فريقنا مستعد دائماً
                 </p>
 
-                <!-- CTA -->
                 <div class="hero__cta" data-aos="fade-up" data-aos-delay="300">
                     <a href="#contact" class="btn btn--light" data-i18n="hero.cta">تواصل معنا</a>
                 </div>
             </div>
         </div>
 
-        <!-- Mute Button -->
         <button class="video-mute" id="heroMute" aria-label="Toggle sound">
             <svg class="video-mute__icon video-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -140,43 +116,34 @@
             </svg>
         </button>
 
-        <!-- Scroll Indicator -->
         <div class="hero__scroll">
             <span class="hero__scroll-text" data-i18n="hero.scroll">SCROLL</span>
             <div class="hero__scroll-line"></div>
         </div>
     </section>
 
-    <!-- ========== Image Divider ========== -->
     <section class="divider" id="divider">
         <div class="divider__image"
             style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=600&fit=crop');">
         </div>
     </section>
 
-    <!-- ========== About Section ========== -->
     <section class="section about" id="about">
         <div class="container">
+            <div class="about__header" data-aos="fade-up">
+                <span class="section__label" data-i18n="about.label">من نحن</span>
+                <h2 class="about__title" data-i18n="about.title">Crew Moon</h2>
+            </div>
+
             <div class="about__wrapper">
-                <!-- Content -->
                 <div class="about__content" data-aos="fade-up">
-                    <span class="section__label" data-i18n="about.label">من نحن</span>
-                    <h2 class="about__title" data-i18n="about.title">Crew Moon</h2>
                     <p class="about__text" data-i18n="about.text">
                         "كرو مون" تقدم حلولاً متكاملة للإنتاج الإعلامي والإبداعي—تشمل إنتاج الفيديو والبودكاست، والتصوير
                         الفوتوغرافي.. نجمع بين الرؤية الإبداعية، التفكير الاستراتيجي، والتقنيات الحديثة لإنتاج محتوى
                         مؤثر يبرز على كل الشاشات
                     </p>
-                    <a href="#services" class="link-arrow" data-i18n="about.link">
-                        <span>المزيد</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </a>
                 </div>
 
-                <!-- Image -->
                 <div class="about__visual" data-aos="fade-up" data-aos-delay="100">
                     <div class="about__image-wrapper">
                         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=700&h=500&fit=crop"
@@ -187,30 +154,18 @@
         </div>
     </section>
 
-    <!-- ========== Services Section ========== -->
     <section class="section services" id="services">
         <div class="container">
-            <!-- Header -->
             <div class="services__header" data-aos="fade-up">
                 <span class="section__label" data-i18n="services.label">ما نقدمه</span>
                 <div class="services__header-row">
                     <h2 class="section__title" data-i18n="services.title">خدماتنا</h2>
-                    <a href="#contact" class="link-arrow" data-i18n="services.link">
-                        <span>اكتشف خدماتنا</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </a>
                 </div>
             </div>
 
-            <!-- Grid -->
             <div class="services__grid">
-                <!-- Service 1: Event Coverage -->
                 <article class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card__image">
-                        <!-- Replace with your local image -->
                         <img src="assets/images/services/event-coverage.jfif" alt="Event Coverage">
                     </div>
                     <div class="service-card__content">
@@ -223,10 +178,8 @@
                     </div>
                 </article>
 
-                <!-- Service 2: Media Production -->
                 <article class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card__image">
-                        <!-- Replace with your local image -->
                         <img src="assets/images/services/media-production.jfif" alt="Media Production">
                     </div>
                     <div class="service-card__content">
@@ -239,10 +192,8 @@
                     </div>
                 </article>
 
-                <!-- Service 3: Digital Content -->
                 <article class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card__image">
-                        <!-- Replace with your local image -->
                         <img src="assets/images/services/digital-content.jfif" alt="Digital Content">
                     </div>
                     <div class="service-card__content">
@@ -254,10 +205,8 @@
                     </div>
                 </article>
 
-                <!-- Service 4: Equipment Rental -->
                 <article class="service-card" data-aos="fade-up" data-aos-delay="400" id="rental">
                     <div class="service-card__image">
-                        <!-- Replace with your local image -->
                         <img src="assets/images/services/equipment-rental.jfif" alt="Equipment Rental">
                     </div>
                     <div class="service-card__content">
@@ -272,31 +221,27 @@
         </div>
     </section>
 
-    <!-- ========== Showreel Section ========== -->
     <section class="showreel section--dark" id="showreel">
-        <!-- Video Background -->
+        <div class="showreel__viewfinder"></div>
+
         <div class="showreel__bg">
             <video class="showreel__video" id="showreelVideo" autoplay muted loop playsinline>
-                <!-- Replace with your local video path -->
                 <source src="https://www.pexels.com/download/video/5206885/" type="video/mp4">
             </video>
             <div class="showreel__overlay"></div>
         </div>
 
-        <!-- Content -->
         <div class="showreel__content">
             <div class="container">
                 <p class="showreel__text" data-aos="fade-up" data-i18n="showreel.text">
                     نحوّل كل لحظة إلى تجارب بصرية لا تُنسى
                 </p>
 
-                <!-- Actions Row -->
                 <div class="showreel__actions" data-aos="fade-up" data-aos-delay="200">
                     <a href="#" class="btn btn--light showreel__cta" data-i18n="showreel.cta">
                         عرض البورتفوليو
                     </a>
 
-                    <!-- Play/Pause Button -->
                     <button class="showreel__play" id="showreelPlay">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z" />
@@ -306,7 +251,6 @@
             </div>
         </div>
 
-        <!-- Mute Button -->
         <button class="video-mute video-mute--showreel" id="showreelMute" aria-label="Toggle sound">
             <svg class="video-mute__icon video-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -322,7 +266,6 @@
         </button>
     </section>
 
-    <!-- ========== Clients Section ========== -->
     <section class="section clients" id="clients">
         <div class="container">
             <div class="clients__header" data-aos="fade-up">
@@ -333,7 +276,6 @@
             </div>
         </div>
 
-        <!-- Marquee Slider -->
         <div class="marquee" data-aos="fade-up" data-aos-delay="100">
             <div class="marquee__track marquee__track--right">
                 <div class="marquee__content">
@@ -402,7 +344,6 @@
         </div>
     </section>
 
-    <!-- ========== Partners Section ========== -->
     <section class="section partners" id="partners">
         <div class="container">
             <div class="partners__header" data-aos="fade-up">
@@ -410,7 +351,6 @@
             </div>
         </div>
 
-        <!-- Marquee Slider (Reverse) -->
         <div class="marquee" data-aos="fade-up" data-aos-delay="100">
             <div class="marquee__track marquee__track--left">
                 <div class="marquee__content">
@@ -463,7 +403,6 @@
         </div>
     </section>
 
-    <!-- ========== Contact Section ========== -->
     <section class="section contact" id="contact">
         <div class="container">
             <div class="contact__header" data-aos="fade-up">
@@ -472,7 +411,6 @@
             </div>
 
             <div class="contact__wrapper">
-                <!-- Contact Info -->
                 <div class="contact__info" data-aos="fade-up" data-aos-delay="100">
                     <div class="contact__item">
                         <h4 class="contact__item-label" data-i18n="contact.email">البريد الإلكتروني</h4>
@@ -489,7 +427,6 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <form class="contact__form" id="contactForm" data-aos="fade-up" data-aos-delay="200">
                     <div class="contact__form-row">
                         <div class="form-group">
@@ -512,22 +449,17 @@
         </div>
     </section>
 
-    <!-- ========== Footer ========== -->
     <footer class="footer" id="footer">
         <div class="container">
-            <!-- Footer Top -->
             <div class="footer__top">
-                <!-- Brand -->
                 <div class="footer__brand">
                     <a href="#" class="footer__logo">
                         <img src="assets/images/logo.png" alt="Crew Moon" class="footer__logo-img">
-                        <span class="footer__logo-text">CREW MOON</span>
                     </a>
                     <p class="footer__tagline" data-i18n="footer.tagline">كرو مون - إنتاج إعلامي متكامل</p>
                 </div>
 
-                <!-- Quick Links -->
-                <div class="footer__links">
+                <div class="footer__links footer__links--grid">
                     <h4 class="footer__links-title" data-i18n="footer.quickLinks">روابط سريعة</h4>
                     <a href="#hero" class="footer__link" data-i18n="nav.home">الرئيسية</a>
                     <a href="#about" class="footer__link" data-i18n="nav.about">عنّا</a>
@@ -537,7 +469,6 @@
                     <a href="#contact" class="footer__link" data-i18n="nav.contact">تواصل</a>
                 </div>
 
-                <!-- Contact -->
                 <div class="footer__links">
                     <h4 class="footer__links-title" data-i18n="footer.contact">التواصل</h4>
                     <a href="mailto:info@crewmoon.com" class="footer__link">info@crewmoon.com</a>
@@ -545,7 +476,6 @@
                     <span class="footer__link" data-i18n="contact.addressValue">الرياض، السعودية</span>
                 </div>
 
-                <!-- Social -->
                 <div class="footer__social">
                     <h4 class="footer__links-title" data-i18n="footer.social">تابعنا</h4>
                     <div class="footer__social-links">
@@ -577,18 +507,14 @@
                 </div>
             </div>
 
-            <!-- Footer Bottom -->
             <div class="footer__bottom">
                 <p class="footer__copyright" data-i18n="footer.copyright">© 2026 كرو مون. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ========== Scripts ========== -->
-    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <!-- App Scripts -->
     <script src="js/translations.js"></script>
     <script src="js/language-switcher.js"></script>
     <script src="js/main.js"></script>

@@ -1,11 +1,7 @@
-/* ==============================================
-   CREW MOON - Clients Section (Marquee)
-   paulkram.com Inspired
-   ============================================== */
-
 .clients {
     background: var(--color-bg);
     overflow: hidden;
+    padding-top: var(--spacing-xl);
 }
 
 .clients__header {
@@ -13,11 +9,15 @@
     margin-bottom: var(--spacing-3xl);
 }
 
-/* Marquee Container */
 .marquee {
     width: 100%;
     overflow: hidden;
-    padding: var(--spacing-xl) 0;
+
+    .marquee {
+        width: 100%;
+        overflow: hidden;
+        padding: 0 0 var(--spacing-xl) 0;
+    }
 }
 
 .marquee__track {
@@ -63,7 +63,6 @@
     opacity: 1;
 }
 
-/* Animations */
 @keyframes marqueeRight {
     0% {
         transform: translateX(0);
@@ -84,12 +83,10 @@
     }
 }
 
-/* Pause on hover */
 .marquee:hover .marquee__track {
     animation-play-state: paused;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 768px) {
     .marquee__item {
         height: 35px;

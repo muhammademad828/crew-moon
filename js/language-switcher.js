@@ -1,8 +1,3 @@
-/**
- * CREW MOON - Language Switcher
- * Handles bilingual functionality (Arabic/English)
- */
-
 class LanguageSwitcher {
     constructor() {
         this.currentLang = localStorage.getItem('crewmoon-lang') || 'ar';
@@ -10,10 +5,8 @@ class LanguageSwitcher {
     }
 
     init() {
-        // Set initial language
         this.setLanguage(this.currentLang, false);
 
-        // Bind click events to language buttons
         document.querySelectorAll('[data-lang-switch]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const lang = e.target.dataset.langSwitch;
@@ -28,23 +21,19 @@ class LanguageSwitcher {
         this.currentLang = lang;
         localStorage.setItem('crewmoon-lang', lang);
 
-        // Update HTML attributes
         document.documentElement.lang = lang;
         document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-        // Update active state on language buttons
         document.querySelectorAll('[data-lang-switch]').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.langSwitch === lang);
         });
 
-        // Update all translatable elements
         this.updateContent(animate);
     }
 
     updateContent(animate) {
         const t = translations[this.currentLang];
 
-        // Animate hero title language switch
         if (animate) {
             const heroTitle = document.querySelector('.hero__title');
             if (heroTitle) {
@@ -78,7 +67,6 @@ class LanguageSwitcher {
             }
         });
 
-        // Update placeholders
         document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
             const key = element.dataset.i18nPlaceholder;
             const value = this.getNestedValue(t, key);
@@ -112,7 +100,6 @@ class LanguageSwitcher {
     }
 }
 
-// Initialize language switcher on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     window.langSwitcher = new LanguageSwitcher();
 });

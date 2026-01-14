@@ -1,11 +1,4 @@
-/**
- * CREW MOON - Translations
- * Bilingual content (Arabic & English)
- * paulkram.com Inspired Design
- */
-
 const translations = {
-  // ========== Arabic ==========
   ar: {
     nav: {
       home: "الرئيسية",
@@ -84,7 +77,6 @@ const translations = {
     }
   },
 
-  // ========== English ==========
   en: {
     nav: {
       home: "Home",
@@ -164,7 +156,6 @@ const translations = {
   }
 };
 
-// Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = translations;
 }

@@ -1,9 +1,3 @@
-/* ==============================================
-   CREW MOON - Base Styles
-   paulkram.com Inspired Theme
-   ============================================== */
-
-/* ===== Reset ===== */
 *,
 *::before,
 *::after {
@@ -30,7 +24,6 @@ body {
     position: relative;
 }
 
-/* Grain Texture Overlay */
 body::before {
     content: '';
     position: fixed;
@@ -44,7 +37,6 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* ===== RTL Support ===== */
 html[dir="rtl"] body,
 body[dir="rtl"] {
     text-align: right;
@@ -55,7 +47,6 @@ body[dir="ltr"] {
     text-align: left;
 }
 
-/* ===== Typography ===== */
 h1,
 h2,
 h3,
@@ -138,12 +129,13 @@ select {
     font-size: inherit;
 }
 
-/* ===== Container ===== */
 .container {
     width: 100%;
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
 }
 
 .container--wide {
@@ -154,7 +146,6 @@ select {
     max-width: 900px;
 }
 
-/* ===== Section ===== */
 .section {
     padding: var(--section-padding) 0;
     position: relative;
@@ -166,18 +157,31 @@ select {
 }
 
 .section__label {
-    display: inline-block;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10vw;
+    font-weight: var(--font-weight-black);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
-    color: var(--color-text-muted);
-    margin-bottom: var(--spacing-lg);
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-text-primary);
+    opacity: 0.1;
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: -1;
+    margin: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .section__title {
     font-size: var(--font-size-5xl);
     margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
 }
 
 .section__subtitle {
@@ -187,7 +191,6 @@ select {
     margin: 0 auto;
 }
 
-/* ===== Buttons ===== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -251,7 +254,6 @@ select {
     transform: translateY(-2px);
 }
 
-/* ===== Links ===== */
 .link-arrow {
     display: inline-flex;
     align-items: center;
@@ -282,7 +284,6 @@ select {
     transform: translateX(-5px);
 }
 
-/* ===== Glass Effect ===== */
 .glass {
     background: var(--color-surface);
     backdrop-filter: blur(20px);
@@ -291,7 +292,6 @@ select {
     border-radius: var(--radius-xl);
 }
 
-/* ===== Utility Classes ===== */
 .text-center {
     text-align: center;
 }
@@ -333,7 +333,6 @@ select {
     display: block;
 }
 
-/* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -351,7 +350,6 @@ select {
     background: var(--color-text-secondary);
 }
 
-/* ===== Selection ===== */
 ::selection {
     background: var(--color-primary);
     color: var(--color-text-light);
