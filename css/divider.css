@@ -1,10 +1,12 @@
 
+
 .divider {
     position: relative;
     height: 50vh;
     min-height: 400px;
     overflow: hidden;
 }
+
 .divider__image {
     position: absolute;
     top: -20%;
@@ -14,10 +16,13 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
     background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=600&fit=crop');
 }
+
 @media (max-width: 768px) {
     .divider__image {
+        
         background-attachment: scroll;
         top: 0;
         height: 100%;

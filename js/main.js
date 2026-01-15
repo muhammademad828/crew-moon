@@ -1,322 +1,152 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    initHeader();
-    initVideoMute();
-    initShowreel();
-    initScrollAnimations();
-    initSmoothScroll();
+    initAOS();
+    initMobileMenu();
+    initHeaderScroll();
+    initHeroVideo();
+    initShowreelVideo();
     initContactForm();
-    initParallax();
-    init3DScrollEffects();
+    initSmoothScroll();
 });
-function initHeader() {
-    const header = document.querySelector('.header');
-    const navToggle = document.querySelector('.header__toggle');
-    const navMenu = document.querySelector('.header__nav');
-    const navOverlay = document.querySelector('.header__overlay');
-    const navLinks = document.querySelectorAll('.header__link');
-    window.addEventListener('scroll', throttle(() => {
-        if (window.scrollY > 100) {
-            header.classList.add('header--scrolled');
-        } else {
-            header.classList.remove('header--scrolled');
-        }
-    }, 50));
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            if (navOverlay) navOverlay.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        });
-    }
-    if (navOverlay) {
-        navOverlay.addEventListener('click', closeMenu);
-    }
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-    function closeMenu() {
-        if (navToggle) navToggle.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
-        if (navOverlay) navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    window.addEventListener('scroll', throttle(() => {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPos = window.scrollY + 150;
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, 100));
-}
-function initVideoMute() {
-    const heroVideo = document.getElementById('heroVideo');
-    const heroMute = document.getElementById('heroMute');
-    if (heroVideo && heroMute) {
-        setupMuteButton(heroVideo, heroMute);
-    }
-    const showreelVideo = document.getElementById('showreelVideo');
-    const showreelMute = document.getElementById('showreelMute');
-    if (showreelVideo && showreelMute) {
-        setupMuteButton(showreelVideo, showreelMute);
-    }
-}
-function setupMuteButton(video, button) {
-    button.addEventListener('click', () => {
-        if (video.muted) {
-            video.muted = false;
-            video.volume = 1.0;
-            button.classList.add('unmuted');
-            button.setAttribute('aria-label', 'Mute sound');
-        } else {
-            video.muted = true;
-            button.classList.remove('unmuted');
-            button.setAttribute('aria-label', 'Unmute sound');
-        }
-    });
-}
-function initShowreel() {
-    const showreelVideo = document.getElementById('showreelVideo');
-    const playButton = document.getElementById('showreelPlay');
-    if (showreelVideo && playButton) {
-        let isPlaying = true;
-        playButton.addEventListener('click', () => {
-            if (isPlaying) {
-                showreelVideo.pause();
-                playButton.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
-            } else {
-                showreelVideo.play();
-                playButton.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>`;
-            }
-            isPlaying = !isPlaying;
-        });
-        showreelVideo.addEventListener('play', () => {
-            isPlaying = true;
-            playButton.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>`;
-        });
-        showreelVideo.addEventListener('pause', () => {
-            isPlaying = false;
-            playButton.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
-        });
-    }
-}
-function initScrollAnimations() {
+
+const initAOS = () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
-            easing: 'ease-out-cubic',
+            easing: 'ease-out',
             once: true,
-            offset: 100,
-            disable: window.innerWidth < 768
+            offset: 50
         });
-        return;
     }
-    const animatedElements = document.querySelectorAll('[data-aos]');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const delay = el.dataset.aosDelay || 0;
-                setTimeout(() => {
-                    el.classList.add('aos-animate');
-                    el.style.opacity = '1';
-                    el.style.transform = 'translate(0, 0)';
-                }, delay);
-                observer.unobserve(el);
-            }
+};
+
+const initMobileMenu = () => {
+    const toggleBtn = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+    const navLinks = document.querySelectorAll('.header__link');
+
+    if (!toggleBtn || !navMenu || !navOverlay) return;
+
+    const toggleMenu = () => {
+        const isActive = toggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('active', isActive);
+        navOverlay.classList.toggle('active', isActive);
+        document.body.classList.toggle('no-scroll', isActive);
+        toggleBtn.setAttribute('aria-expanded', isActive);
+    };
+
+    toggleBtn.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) toggleMenu();
         });
-    }, { threshold: 0.1 });
-    animatedElements.forEach(el => {
-        const animation = el.dataset.aos;
-        el.style.opacity = '0';
-        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        switch (animation) {
-            case 'fade-up':
-                el.style.transform = 'translateY(30px)';
-                break;
-            case 'fade-down':
-                el.style.transform = 'translateY(-30px)';
-                break;
-            case 'fade-left':
-                el.style.transform = 'translateX(30px)';
-                break;
-            case 'fade-right':
-                el.style.transform = 'translateX(-30px)';
-                break;
-            case 'zoom-in':
-                el.style.transform = 'scale(0.9)';
-                break;
-            default:
-                el.style.transform = 'translateY(20px)';
-        }
-        observer.observe(el);
     });
-}
-function initSmoothScroll() {
+};
+
+const initHeaderScroll = () => {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    const handleScroll = () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+};
+
+const initHeroVideo = () => {
+    const video = document.getElementById('heroVideo');
+    const muteBtn = document.getElementById('heroMute');
+
+    if (!video || !muteBtn) return;
+
+    muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        muteBtn.classList.toggle('unmuted', !video.muted);
+    });
+};
+
+const initShowreelVideo = () => {
+    const video = document.getElementById('showreelVideo');
+    const playBtn = document.getElementById('showreelPlay');
+    const muteBtn = document.getElementById('showreelMute');
+
+    if (!video || !playBtn || !muteBtn) return;
+
+    const ICONS = {
+        PLAY: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+        PAUSE: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>'
+    };
+
+    playBtn.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playBtn.innerHTML = ICONS.PAUSE;
+            playBtn.setAttribute('aria-label', 'Pause Showreel');
+        } else {
+            video.pause();
+            playBtn.innerHTML = ICONS.PLAY;
+            playBtn.setAttribute('aria-label', 'Play Showreel');
+        }
+    });
+
+    muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        muteBtn.classList.toggle('unmuted', !video.muted);
+    });
+};
+
+const initContactForm = () => {
+    const form = document.getElementById('contactForm');
+    const modal = document.getElementById('successModal');
+    const closeBtn = document.getElementById('closeModal');
+    const modalBtn = document.getElementById('modalBtn');
+
+    if (!form || !modal) return;
+
+    const toggleModal = (show) => {
+        modal.classList.toggle('active', show);
+        modal.setAttribute('aria-hidden', !show);
+        document.body.classList.toggle('no-scroll', show);
+        if (!show) form.reset();
+    };
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        toggleModal(true);
+    });
+
+    [closeBtn, modalBtn].forEach(btn => {
+        if (btn) btn.addEventListener('click', () => toggleModal(false));
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) toggleModal(false);
+    });
+};
+
+const initSmoothScroll = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-                const targetPosition = targetElement.offsetTop - headerHeight;
+            const targetId = anchor.getAttribute('href');
+            if (targetId === '#' || !targetId) return;
+
+            const target = document.querySelector(targetId);
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
                 window.scrollTo({
-                    top: targetPosition,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
-}
-function initContactForm() {
-    const form = document.querySelector('.contact__form');
-    const modal = document.getElementById('successModal');
-    const closeModalBtn = document.getElementById('closeModal');
-    const modalBtn = document.getElementById('modalBtn');
-    const modalOverlay = document.querySelector('.modal');
-    const closeModal = () => {
-        if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    };
-    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (modalBtn) modalBtn.addEventListener('click', closeModal);
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeModal();
-            }
-        });
-    }
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            if (!data.name || !data.email || !data.message) {
-                const isArabic = document.documentElement.lang === 'ar';
-                alert(isArabic ? 'يرجى ملء جميع الحقول المطلوبة' : 'Please fill in all required fields');
-                return;
-            }
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                const isArabic = document.documentElement.lang === 'ar';
-                alert(isArabic ? 'يرجى إدخال بريد إلكتروني صحيح' : 'Please enter a valid email address');
-                return;
-            }
-            const submitBtn = form.querySelector('[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = document.documentElement.lang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
-            setTimeout(() => {
-                if (modal) {
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    const isArabic = document.documentElement.lang === 'ar';
-                    alert(isArabic ? '' : 'Message sent successfully!');
-                }
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-            }, 1500);
-        });
-    }
-}
-function initParallax() {
-    const dividerImage = document.querySelector('.divider__image');
-    if (dividerImage && window.innerWidth > 768) {
-        window.addEventListener('scroll', throttle(() => {
-            const scrolled = window.pageYOffset;
-            const dividerTop = dividerImage.parentElement.offsetTop;
-            const rate = (scrolled - dividerTop) * 0.3;
-            if (scrolled > dividerTop - window.innerHeight && scrolled < dividerTop + dividerImage.parentElement.offsetHeight) {
-                dividerImage.style.transform = `translateY(${rate}px)`;
-            }
-        }, 16));
-    }
-    function init3DScrollEffects() {
-        const targetSelectors = [
-            '.about__content',
-            '.about__visual',
-            '.service-card',
-            '.contact__wrapper'
-        ];
-        const targetElements = document.querySelectorAll(targetSelectors.join(','));
-        if (targetElements.length === 0 || window.innerWidth < 768) return;
-        targetElements.forEach(el => {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'js-3d-tilt-wrapper';
-            wrapper.style.transition = 'transform 0.1s linear';
-            wrapper.style.transformStyle = 'preserve-3d';
-            wrapper.style.willChange = 'transform';
-            while (el.firstChild) {
-                wrapper.appendChild(el.firstChild);
-            }
-            el.appendChild(wrapper);
-            el.style.perspective = '1000px';
-            el.style.transformStyle = 'preserve-3d';
-        });
-        const tiltWrappers = document.querySelectorAll('.js-3d-tilt-wrapper');
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    update3DTransforms(tiltWrappers);
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-        function update3DTransforms(elements) {
-            const windowHeight = window.innerHeight;
-            const windowCenter = windowHeight / 2;
-            elements.forEach(el => {
-                const parent = el.parentElement;
-                const rect = parent.getBoundingClientRect();
-                const elementCenter = rect.top + (rect.height / 2);
-                if (rect.top < windowHeight + 50 && rect.bottom > -50) {
-                    const distFromCenter = elementCenter - windowCenter;
-                    const normalizedDist = distFromCenter / (windowHeight / 2);
-                    const rotateX = normalizedDist * 15;
-                    el.style.transform = `rotateX(${-rotateX}deg) scale(${1 - Math.abs(normalizedDist) * 0.02})`;
-                }
-            });
-        }
-    }
-}
-function throttle(func, limit) {
-    let inThrottle;
-    return function (...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-function debounce(func, wait) {
-    let timeout;
-    return function (...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-}
+};

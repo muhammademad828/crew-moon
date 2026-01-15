@@ -1,3 +1,5 @@
+
+
 .header {
     position: fixed;
     top: 0;
@@ -7,19 +9,22 @@
     padding: var(--spacing-md) 0;
     transition: all var(--transition-smooth);
 }
+
 .header--scrolled {
     background: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 0.5rem 0;
+    padding: var(--spacing-sm) 0;
     box-shadow: none;
 }
+
 .header__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-xl);
 }
+
 .header__logo {
     display: flex;
     align-items: center;
@@ -27,27 +32,19 @@
     text-decoration: none;
     z-index: 10;
 }
+
 .header__logo-img {
     width: 60px;
     height: 60px;
     object-fit: contain;
 }
-.header__logo-text {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-light);
-    letter-spacing: var(--letter-spacing-wide);
-    text-transform: uppercase;
-    transition: color var(--transition-base);
-}
-.header--scrolled .header__logo-text {
-    color: var(--color-text-primary);
-}
+
 .header__nav {
     display: flex;
     align-items: center;
     gap: var(--spacing-xl);
 }
+
 .header__link {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
@@ -57,6 +54,7 @@
     transition: all var(--transition-base);
     position: relative;
 }
+
 .header__link::after {
     content: '';
     position: absolute;
@@ -67,23 +65,28 @@
     background: currentColor;
     transition: width var(--transition-base);
 }
+
 .header__link:hover::after,
 .header__link.active::after {
     width: 100%;
 }
+
 .header--scrolled .header__link {
     color: var(--color-text-primary);
 }
+
 .header__actions {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
 }
+
 .header__lang {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
 }
+
 .header__lang-btn {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
@@ -94,20 +97,25 @@
     opacity: 0.6;
     padding: var(--spacing-xs) var(--spacing-sm);
 }
+
 .header__lang-btn.active,
 .header__lang-btn:hover {
     opacity: 1;
 }
+
 .header--scrolled .header__lang-btn {
     color: var(--color-text-primary);
 }
+
 .header__lang-divider {
     color: var(--color-text-light);
     opacity: 0.4;
 }
+
 .header--scrolled .header__lang-divider {
     color: var(--color-text-primary);
 }
+
 .header__toggle {
     display: none;
     flex-direction: column;
@@ -116,26 +124,31 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    z-index: 10;
 }
+
 .header__toggle-bar {
     width: 100%;
     height: 2px;
     background: var(--color-text-light);
     transition: all var(--transition-base);
 }
+
 .header--scrolled .header__toggle-bar {
     background: var(--color-text-primary);
 }
+
 .header__toggle.active .header__toggle-bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
 .header__toggle.active .header__toggle-bar:nth-child(2) {
     opacity: 0;
 }
+
 .header__toggle.active .header__toggle-bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
+
 .header__overlay {
     position: fixed;
     top: 0;
@@ -146,25 +159,28 @@
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
-    z-index: -1;
+    z-index: var(--z-below);
 }
+
 .header__overlay.active {
     opacity: 1;
     visibility: visible;
 }
+
 @media (max-width: 1024px) {
     .header__nav {
         gap: var(--spacing-lg);
     }
 }
+
 @media (max-width: 768px) {
     .header__toggle {
         display: flex;
     }
+
     .header__nav {
         position: fixed;
         top: 0;
-        right: -100%;
         width: 80%;
         max-width: 320px;
         height: 100vh;
@@ -173,20 +189,25 @@
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-lg);
-        transition: right var(--transition-smooth);
+        transition: right var(--transition-smooth), left var(--transition-smooth);
         box-shadow: var(--shadow-xl);
+        right: -100%;
+        left: auto;
     }
+
+    .header__nav.active {
+        right: 0;
+    }
+
     [dir="rtl"] .header__nav {
         right: auto;
         left: -100%;
     }
-    .header__nav.active {
-        right: 0;
-    }
+
     [dir="rtl"] .header__nav.active {
-        right: auto;
         left: 0;
     }
+
     .header__link {
         color: var(--color-text-primary);
         font-size: var(--font-size-lg);

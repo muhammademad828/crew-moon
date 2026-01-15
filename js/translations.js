@@ -144,7 +144,7 @@ const translations = {
         message: "Message",
         submit: "Send Message"
       }
-    },
+    }, 
     footer: {
       tagline: "Crew Moon - Full-service media production",
       quickLinks: "Quick Links",
