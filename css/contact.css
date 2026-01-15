@@ -1,5 +1,3 @@
-
-
 .contact {
     background: var(--color-bg);
 }
@@ -67,11 +65,11 @@ a.contact__item-value:hover {
 }
 
 .form-group {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group:last-of-type {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .form-group__label {
@@ -81,13 +79,13 @@ a.contact__item-value:hover {
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wide);
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
 }
 
 .form-group__input,
 .form-group__textarea {
     width: 100%;
-    padding: var(--spacing-md);
+    padding: 0.75rem;
     font-size: var(--font-size-base);
     color: var(--color-text-primary);
     background: var(--color-bg);
