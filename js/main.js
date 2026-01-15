@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initShowreelVideo();
     initContactForm();
     initSmoothScroll();
+    initScrollSpy();
 });
 
 const initAOS = () => {
@@ -149,4 +150,37 @@ const initSmoothScroll = () => {
             }
         });
     });
+};
+
+const initScrollSpy = () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.header__link');
+
+    if (!sections.length || !navLinks.length) return;
+
+    const handleScrollSpy = () => {
+        let current = '';
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (scrollPosition >= sectionTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+
+    handleScrollSpy();
 };
