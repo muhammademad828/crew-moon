@@ -28,9 +28,17 @@
 
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cursor.css">
 </head>
 
 <body>
+    <div class="custom-cursor" aria-hidden="true">
+        <div class="custom-cursor__bracket custom-cursor__bracket--tl"></div>
+        <div class="custom-cursor__bracket custom-cursor__bracket--tr"></div>
+        <div class="custom-cursor__bracket custom-cursor__bracket--bl"></div>
+        <div class="custom-cursor__bracket custom-cursor__bracket--br"></div>
+        <div class="custom-cursor__crosshair"></div>
+    </div>
 
     <header class="header" id="header">
         <div class="container header__container">
@@ -480,6 +488,7 @@
     <script src="js/translations.js"></script>
     <script src="js/language-switcher.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cursor.js"></script>
 
 
     <div class="modal" id="successModal" aria-hidden="true">
