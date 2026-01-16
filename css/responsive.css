@@ -1,0 +1,76 @@
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 2.5rem;
+        --spacing-lg: 1.5rem;
+        --container-padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 var(--container-padding);
+    }
+
+    .section__label {
+        font-size: 4rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+    }
+
+    .services__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-height: 150px;
+        text-align: center;
+    }
+
+    .services__header .section__title {
+        margin: 0;
+        padding-top: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer,
+    .footer-content,
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: fit-content;
+        margin: 0 auto;
+        text-align: left;
+        gap: 0.5rem 2rem;
+    }
+
+    .logo-track img {
+        height: 40px;
+        margin: 0 1.5rem;
+    }
+}
+
+html[lang="ar"] .section__label,
+[dir="rtl"] .section__label {
+    content: 'كرو مون';
+}

@@ -92,3 +92,4 @@ class LanguageSwitcher {
 document.addEventListener('DOMContentLoaded', () => {
     window.langSwitcher = new LanguageSwitcher();
 });
+

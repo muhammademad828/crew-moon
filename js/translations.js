@@ -10,7 +10,7 @@ const translations = {
       cta: "استفسارات"
     },
     hero: {
-      title: "CREW MOON",
+      title: "كرو مون",
       tagline: "كل مشهد يحكي قصة",
       subtitle: "فريقنا مستعد دائماً",
       cta: "تواصل معنا",
@@ -18,7 +18,7 @@ const translations = {
     },
     about: {
       label: "من نحن",
-      title: "Crew Moon",
+      title: "كرو مون",
       text: "\"كرو مون\" تقدم حلولاً متكاملة للإنتاج الإعلامي والإبداعي—تشمل إنتاج الفيديو والبودكاست، والتصوير الفوتوغرافي.. نجمع بين الرؤية الإبداعية، التفكير الاستراتيجي، والتقنيات الحديثة لإنتاج محتوى مؤثر يبرز على كل الشاشات",
       link: "المزيد"
     },
@@ -144,7 +144,7 @@ const translations = {
         message: "Message",
         submit: "Send Message"
       }
-    }, 
+    },
     footer: {
       tagline: "Crew Moon - Full-service media production",
       quickLinks: "Quick Links",
@@ -157,3 +157,4 @@ const translations = {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = translations;
 }
+

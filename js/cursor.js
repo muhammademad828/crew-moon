@@ -27,3 +27,4 @@ document.querySelectorAll(interactiveElements).forEach((el) => {
 });
 
 requestAnimationFrame(updateCursor);
+
